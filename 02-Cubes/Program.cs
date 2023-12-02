@@ -1,6 +1,6 @@
 ﻿var part1 = File.ReadAllLines("input.txt")
     .Select(MaxCubes)
-    .Where(x => x.Red <= 12 && x.Green <= 13 && x.Blue <= 14)
+    .Where(x => x.Red < 13 && x.Green < 14 && x.Blue < 15)
     .Sum(x => x.Id);
 
 Console.WriteLine(part1);
@@ -14,12 +14,12 @@ Console.WriteLine(part2);
 
 (int Id, int Red, int Green, int Blue) MaxCubes(string line, int index)
 {
-    var rounds = line.Split([':',';']);
+    var rounds = line.Split(':',';');
     int maxRed = 0, maxGreen = 0, maxBlue = 0;
 
     foreach (string r in rounds[1..])
     {
-        var parts = r.Split([' ', ',']);
+        var parts = r.Split(' ', ',');
 
         for (int i = 1; i < parts.Length; i += 3)
         {
