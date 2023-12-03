@@ -4,11 +4,11 @@ var schematic = File.ReadAllLines("input.txt");
 
 var numbers = from y in Enumerable.Range(0, schematic.Length)
               from m in Regex.Matches(schematic[y], "\\d+")
-              from x in Enumerable.Range(m.Index, m.Value.Length)
+              from x in Enumerable.Range(m.Index, m.Length)
               select new { x, y, match = m };
 
 var symbols = from y in Enumerable.Range(0, schematic.Length)
-              from m in Regex.Matches(schematic[y], "[^0-9.]")
+              from m in Regex.Matches(schematic[y], "[^\\d.]")
               select new { x = m.Index, y, m.Value };
 
 var part1 = from n in numbers
