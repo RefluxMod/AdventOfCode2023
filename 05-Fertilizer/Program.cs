@@ -4,14 +4,14 @@ var input = File.ReadAllText("input.txt").Split("\r\n\r");
 var maps = input[1..].Select(x => x.Split("\r\n")[1..]).Select(ParseMap).ToArray();
 var seeds = input[0].Split(' ')[1..].Select(uint.Parse);
 
-Console.WriteLine("Part1 " + seeds.Min(FindLocation));
+Console.WriteLine($"Part1 {seeds.Min(FindLocation)}");
 
 var watch = Stopwatch.StartNew();
 var tasks = seeds.Chunk(2).Select(x => Task.Run(() => FindLowestLocation(x[0], x[1])));
 var locations = await Task.WhenAll(tasks);
 watch.Stop();
 
-Console.WriteLine("Part2 " + locations.Min() + " " + watch.Elapsed); // Det tog 1 min 30s att köra release
+Console.WriteLine($"Part2 {locations.Min()} {watch.Elapsed}"); // Det tog 1 min 30s att köra release
 Console.ReadLine();
 
 
@@ -20,7 +20,7 @@ uint FindLowestLocation(uint start, uint length)
     Console.WriteLine($"Start Task {Task.CurrentId}");
     uint location = uint.MaxValue;
     for (uint i = 0; i < length; i++)
-        location = Math.Min(location, FindLocation(++start));
+        location = Math.Min(location, FindLocation(start++));
     Console.WriteLine($"Finished Task {Task.CurrentId} with lowest location number {location}");
     return location;
 }
