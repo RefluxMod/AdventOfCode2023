@@ -43,18 +43,11 @@ int GetTotal((string Card, int Kind, string Sort)[] rankedCards)
 
     if (card == "JJJJJ")
         return (card, kind, cardSort);
-
     if (key != 'J' && card.Contains('J'))
-    {
-        var newCard = GetCards1(card.Replace('J', key));
-        return (card, newCard.Kind, cardSort);
-    }
-    else if (key == 'J')
-    {
-        var max = card.MaxBy(labels2.IndexOf);
-        var newCard = GetCards1(card.Replace('J', max));
-        return (card, newCard.Kind, cardSort);
-    }
+        return (card, GetKind(card.Replace('J', key)), cardSort);
+    if (key == 'J')
+        return (card, GetKind(card.Replace('J', card.MaxBy(labels2.IndexOf))), cardSort);
+
     return (card, kind, cardSort);
 }
 
