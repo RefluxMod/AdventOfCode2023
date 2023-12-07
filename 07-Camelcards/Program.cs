@@ -53,7 +53,7 @@ int GetTotal((string Card, int Kind, string Sort)[] rankedCards)
 
 int GetKind(string card)
 {
-    var g = card.GroupBy(x => x).OrderByDescending(x => x.Count()).ToArray();
+    var g = card.GroupBy(x => x).ToArray();
     return g.Any(x => x.Count() == 5) ? 7
         : g.Any(x => x.Count() == 4) ? 6
         : g.Any(x => x.Count() == 3) && g.Any(x => x.Count() == 2) ? 5
