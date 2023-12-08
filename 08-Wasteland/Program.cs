@@ -14,18 +14,17 @@ do
 
 Console.WriteLine(steps);
 
-var positionList = map.Where(x => x.Key.EndsWith('A')).Select(x => new Position { Current = x.Key} ).ToList();
+var positionList = map.Where(x => x.Key.EndsWith('A')).Select(x => new Position { Current = x.Key }).ToList();
 do
 {
     foreach (char c in instructions)
     {
-        for(int i =  0; i < positionList.Count; i++)
+        foreach(var p in positionList)
         {
-            if (positionList[i].Current.EndsWith('Z'))
+            if (p.Current.EndsWith('Z'))
                 continue;
-
-            positionList[i].Current = c == 'R' ? map[positionList[i].Current].Item2 : map[positionList[i].Current].Item1;
-            positionList[i].Steps++;
+            p.Current = c == 'R' ? map[p.Current].Item2 : map[p.Current].Item1;
+            p.Steps++;
         }
     }
 } while (positionList.Any(x => !x.Current.EndsWith('Z')));
