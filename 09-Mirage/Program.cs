@@ -37,7 +37,7 @@ List<List<long>> GetDiffRows(IEnumerable<long> sequence)
         diffs.Insert(0, newRow);
         current = newRow;
 
-    } while (!diffs[0].All(x => x == 0));
+    } while (!current.All(x => x == 0));
 
     return diffs;
 }
