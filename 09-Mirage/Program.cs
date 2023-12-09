@@ -28,7 +28,7 @@ List<List<long>> GetDiffRows(IEnumerable<long> sequence)
     var current = sequence.ToList();
     var diffs = new List<List<long>>();
 
-    do
+    while(!current.All(x => x == 0))
     {
         var newRow = new List<long>();
         for (int i = 1; i < current.Count; i++)
@@ -36,8 +36,7 @@ List<List<long>> GetDiffRows(IEnumerable<long> sequence)
 
         diffs.Insert(0, newRow);
         current = newRow;
-
-    } while (!current.All(x => x == 0));
+    }
 
     return diffs;
 }
