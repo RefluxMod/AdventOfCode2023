@@ -5,7 +5,6 @@ Console.WriteLine(sequences.Sum(GetValue2));
 
 long GetValue1(IEnumerable<long> sequence)
 {
-    var current = sequence.ToList();
     var diffs = GetDiffRows(sequence);
 
     for (int i = 1; i < diffs.Count; i++)
@@ -16,7 +15,6 @@ long GetValue1(IEnumerable<long> sequence)
 
 long GetValue2(IEnumerable<long> sequence)
 {
-    var current = sequence.ToList();
     var diffs = GetDiffRows(sequence);
 
     for (int i = 1; i < diffs.Count; i++)
