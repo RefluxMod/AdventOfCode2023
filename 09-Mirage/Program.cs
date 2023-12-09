@@ -16,13 +16,13 @@ long GetValue1(IEnumerable<long> sequence)
 
 long GetValue2(IEnumerable<long> sequence)
 {
-    var itlist = sequence.ToList();
-    var list = GetDiffRows(sequence);
+    var current = sequence.ToList();
+    var diffs = GetDiffRows(sequence);
 
-    for (int i = 1; i < list.Count; i++)
-        list[i].Insert(0, list[i].First() - list[i - 1].First());
+    for (int i = 1; i < diffs.Count; i++)
+        diffs[i].Insert(0, diffs[i].First() - diffs[i - 1].First());
 
-    return sequence.First() - list.Last().First();
+    return sequence.First() - diffs.Last().First();
 }
 
 List<List<long>> GetDiffRows(IEnumerable<long> sequence)
