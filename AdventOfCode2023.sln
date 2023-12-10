@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07-Camelcards", "07-Camelca
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "08-Wasteland", "08-Wasteland\08-Wasteland.csproj", "{1E70120C-B308-4C61-8E78-C489BA079405}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09-Mirage", "09-Mirage\09-Mirage.csproj", "{5D887A59-3C57-4376-A156-CD9C2F2189A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "09-Mirage", "09-Mirage\09-Mirage.csproj", "{5D887A59-3C57-4376-A156-CD9C2F2189A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10-Pipes", "10-Pipes\10-Pipes.csproj", "{87790068-F225-45EC-838D-476B3941CAE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{5D887A59-3C57-4376-A156-CD9C2F2189A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D887A59-3C57-4376-A156-CD9C2F2189A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D887A59-3C57-4376-A156-CD9C2F2189A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87790068-F225-45EC-838D-476B3941CAE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87790068-F225-45EC-838D-476B3941CAE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87790068-F225-45EC-838D-476B3941CAE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87790068-F225-45EC-838D-476B3941CAE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
