@@ -1,11 +1,8 @@
 ﻿var lines = File.ReadAllLines("input.txt");
 var map = lines.Select(line => line.ToArray()).ToArray();
-var stepMap1 = map.Select(x => x.Select(_ => 0).ToArray()).ToArray();
-var stepMap2 = map.Select(x => x.Select(_ => 0).ToArray()).ToArray();
 var start = FindStartPosition(map);
-
-Walk(stepMap1, start.Y, start.X, start.Y - 1, start.X);
-Walk(stepMap2, start.Y, start.X, start.Y + 1, start.X);
+var stepMap1 = Walk(start.Y, start.X, start.Y - 1, start.X);
+var stepMap2 = Walk(start.Y, start.X, start.Y + 1, start.X);
 FindMeetingPosition(stepMap1, stepMap2);
 
 
@@ -19,8 +16,9 @@ FindMeetingPosition(stepMap1, stepMap2);
     throw new Exception("Start position not found");
 }
 
-void Walk(int[][] stepMap, int prevY, int prevX, int currentY, int currentX)
+int[][] Walk(int prevY, int prevX, int currentY, int currentX)
 {
+    var stepMap = map.Select(x => x.Select(_ => 0).ToArray()).ToArray();
     int steps = 1;
     while (true)
     {
@@ -35,6 +33,7 @@ void Walk(int[][] stepMap, int prevY, int prevX, int currentY, int currentX)
         currentX = newX;
         stepMap[newY][newX] = ++steps;
     }
+    return stepMap;
 }
 
 void FindMeetingPosition(int[][] stepMap1, int[][] stepMap2)
@@ -65,5 +64,3 @@ void FindMeetingPosition(int[][] stepMap1, int[][] stepMap2)
     'F' => (Y + 1, X, Y, X + 1),
     _ => throw new Exception("No way"),
 };
-
-
