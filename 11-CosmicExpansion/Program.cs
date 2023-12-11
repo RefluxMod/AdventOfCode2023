@@ -3,7 +3,7 @@ var rows = File.ReadAllLines("input.txt");
 var points = rows.Select((line, y) => line.Select((val, x) => (x, y, val))).SelectMany(x => x);
 
 int[] emptyRows = [..Enumerable.Range(0, rows.Length).Where(i => !points.Any(p => p.y == i && p.val == '#'))];
-int[] emptyColumns = [.. Enumerable.Range(0, rows[0].Length).Where(i => !points.Any(p => p.x == i && p.val == '#'))];
+int[] emptyColumns = [..Enumerable.Range(0, rows[0].Length).Where(i => !points.Any(p => p.x == i && p.val == '#'))];
 
 var pairs1 = GetPairs(GetGalaxies(1));
 Console.WriteLine(SumDistances(pairs1));
