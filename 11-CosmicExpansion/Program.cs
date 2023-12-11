@@ -16,7 +16,7 @@ long SumDistances((Galaxy g1, Galaxy g2)[] pairs) => pairs.Sum(p => Math.Abs(p.g
 Galaxy[] GetGalaxies(int expansion) => [..points.Where(p => p.val == '#').Select(p => new Galaxy(
         p.x + emptyColumns.Count(c => c < p.x) * expansion,
         p.y + emptyRows.Count(r => r < p.y) * expansion,
-        Id: ++galaxyCount))];
+        ++galaxyCount))];
 
 (Galaxy g1, Galaxy g2)[] GetPairs(Galaxy[] galaxies) =>
     [..from g1 in galaxies 
